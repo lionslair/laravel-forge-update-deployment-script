@@ -1,4 +1,4 @@
-name: "Laravel Forge Deploy Script Update Action"
+name: "Laravel Forge Update Deploy Script Action"
 description: "Update Laravel Forge Deployments Scripts with Github Actions"
 author: "lionslair"
 branding:
