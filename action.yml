@@ -1,0 +1,31 @@
+name: "Laravel Forge Deploy Script Update Action"
+description: "Update Laravel Forge Deployments Scripts with Github Actions"
+author: "lionslair"
+branding:
+  icon: upload-cloud
+  color: green
+inputs:
+  content:
+    description: "What to update the forge deploy script with"
+    required: true
+  auto_source:
+    description: "Should deployments source the env variables"
+    required: false
+  api_key:
+    description: "Laravel Forge API Key"
+    required: true
+  server_id:
+    description: "Laravel Forge Server ID"
+    required: true
+  site_id:
+    description: "Laravel Forge Site ID"
+    required: true
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  env:
+    CONTENT: ${{ inputs.content }}
+    AUTO_SOURCE: ${{ inputs.auto_source }}
+    API_KEY: ${{ inputs.api_key }}
+    SERVER_ID: ${{ inputs.server_id }}
+    SITE_ID: ${{ inputs.site_id }}
