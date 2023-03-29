@@ -8,8 +8,8 @@ AUTO_SOURCE="${AUTO_SOURCE:=false}"  # If variable not set or null, set it to de
 update_deploy_script() {
     JSON_STRING=$(jq -n \
                     --arg ct "$CONTENT" \
-                    --arg as "$AUTO_SOURCE" \
-                    '{"content": "$ct", "auto_source": $as}'
+                    --arg s "$AUTO_SOURCE" \
+                    '{"content": "$ct", "auto_source": $s}'
     )
 
     echo $JSON_STRING;
