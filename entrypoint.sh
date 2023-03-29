@@ -15,9 +15,8 @@ update_deploy_script() {
         -H "Authorization: Bearer $API_KEY" \
         -H "Content-Type: application/json" \
         -H "Accept: application/json" \
-        --data "content=$CONTENT" \
-        --data "auto_source=$AUTO_SOURCE" \
-        "https://forge.laravel.com/api/v1/servers/$SERVER_ID/sites/$SITE_ID/deployment/scipt"
+        --data '{"content": "$CONTENT", "auto_source": $AUTO_SOURCE}' \
+        "https://forge.laravel.com/api/v1/servers/$SERVER_ID/sites/$SITE_ID/deployment/script"
 }
 
 if [ -n "$API_KEY" ]; then
