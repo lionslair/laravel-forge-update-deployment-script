@@ -9,7 +9,7 @@ update_deploy_script() {
     JSON_STRING=$(jq -n \
                     --arg ct "$CONTENT" \
                     --arg s "$AUTO_SOURCE" \
-                    '{"content": "$ct", "auto_source": $s}'
+                    '{"content": $ct, "auto_source": $s}'
     )
 
     echo $JSON_STRING;
