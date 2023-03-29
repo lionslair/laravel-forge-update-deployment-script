@@ -3,10 +3,11 @@ set -e
 
 AUTO_SOURCE="${AUTO_SOURCE:=false}"  # If variable not set or null, set it to default.
 
-update_deploy_script() {
-    curl \
         # --fail \
         # --silent \
+
+update_deploy_script() {
+    curl \
         --show-error \
         --user-agent "Forge-GitHubAction/1.0" \
         --max-time 5 \
