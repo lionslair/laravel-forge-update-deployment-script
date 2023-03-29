@@ -5,8 +5,8 @@ AUTO_SOURCE="${AUTO_SOURCE:=false}"  # If variable not set or null, set it to de
 
 update_deploy_script() {
     curl \
-        --fail \
-        --silent \
+        # --fail \
+        # --silent \
         --show-error \
         --user-agent "Forge-GitHubAction/1.0" \
         --max-time 5 \
