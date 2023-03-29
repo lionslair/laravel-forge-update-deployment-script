@@ -3,11 +3,20 @@ set -e
 
 AUTO_SOURCE="${AUTO_SOURCE:=false}"  # If variable not set or null, set it to default.
 
-        # --fail \
-        # --silent \
+
 
 update_deploy_script() {
+    JSON_STRING=$(jq -n \
+                    --arg ct "$CONTENT" \
+                    --arg as "$AUTO_SOURCE" \
+                    '{"content": "$ct", "auto_source": $as}'
+    )
+
+    echo $JSON_STRING;
+
     curl \
+        --fail \
+        --silent \
         --show-error \
         --user-agent "Forge-GitHubAction/1.0" \
         --max-time 5 \
@@ -16,7 +25,7 @@ update_deploy_script() {
         -H "Authorization: Bearer $API_KEY" \
         -H "Content-Type: application/json" \
         -H "Accept: application/json" \
-        --data '{"content": "$CONTENT", "auto_source": $AUTO_SOURCE}' \
+        --data "$JS" \
         "https://forge.laravel.com/api/v1/servers/$SERVER_ID/sites/$SITE_ID/deployment/script"
 }
 
