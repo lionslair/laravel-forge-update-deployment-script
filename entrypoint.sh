@@ -27,6 +27,7 @@ update_deploy_script() {
         -H "Content-Type: application/json" \
         -H "Accept: application/json" \
         --data "$JS" \
+        -v \
         "https://forge.laravel.com/api/v1/servers/$SERVER_ID/sites/$SITE_ID/deployment/script"
         
 }
