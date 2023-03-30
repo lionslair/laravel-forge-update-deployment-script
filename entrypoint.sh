@@ -14,10 +14,11 @@ update_deploy_script() {
 
     echo $JSON_STRING;
 
+        # --fail \
+        # --silent \
+
     curl \
         --trace \
-        --fail \
-        --silent \
         --show-error \
         --user-agent "Forge-GitHubAction/1.0" \
         --max-time 5 \
