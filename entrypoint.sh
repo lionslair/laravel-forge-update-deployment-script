@@ -26,7 +26,7 @@ update_deploy_script() {
         -H "Authorization: Bearer $API_KEY" \
         -H "Content-Type: application/json" \
         -H "Accept: application/json" \
-        -d $JS \
+        -d "$JS" \
         "https://forge.laravel.com/api/v1/servers/$SERVER_ID/sites/$SITE_ID/deployment/script"
 }
 
