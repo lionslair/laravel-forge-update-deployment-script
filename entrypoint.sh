@@ -15,6 +15,7 @@ update_deploy_script() {
     echo $JSON_STRING;
 
     curl \
+        --trace \
         --fail \
         --silent \
         --show-error \
