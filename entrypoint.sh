@@ -22,7 +22,7 @@ update_deploy_script() {
         --user-agent "Forge-GitHubAction/1.0" \
         --max-time 5 \
         --connect-timeout 5 \
-        -H "Authorization: Bearer $API_KEY" \
+        -H "Authorization: Bearer test" \
         -H "Content-Type: application/json" \
         -H "Accept: application/json" \
         -d "$JS"
