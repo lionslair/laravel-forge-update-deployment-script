@@ -6,28 +6,36 @@ AUTO_SOURCE="${AUTO_SOURCE:=false}"  # If variable not set or null, set it to de
 
 
 update_deploy_script() {
-    JSON_STRING=$(jq -n \
-                    --argjson ct "$CONTENT" \
-                    --argjson s "$AUTO_SOURCE" \
-                    '{"content": $ct, "auto_source": $s}'
-    )
+    # JSON_STRING=$(jq -n \
+    #                 --argjson ct "$CONTENT" \
+    #                 --argjson s "$AUTO_SOURCE" \
+    #                 '{"content": $ct, "auto_source": $s}'
+    # )
 
-    echo $JSON_STRING;
+    # echo $JSON_STRING;
+
+    # https PUT "https://forge.laravel.com/api/v1/servers/$SERVER_ID/sites/$SITE_ID/deployment/script" \
+    #       Content-Type:application/json \
+    #       Accept:application/json \
+    #       -A Bearer -a "$API_KEY" \
+    #       content="$CONTENT" \
+    #       auto_source-"$AUTO_SOURCE"
 
 
-    curl \
-        --fail \
-        --silent \
-        --show-error \
-        --user-agent "Forge-GitHubAction/1.0" \
-        --max-time 5 \
-        --request PUT \
-        --connect-timeout 5 \
-        -H "Authorization: Bearer $API_KEY" \
-        -H "Content-Type: application/json" \
-        -H "Accept: application/json" \
-        --data "$JS" \
-        "https://forge.laravel.com/api/v1/servers/$SERVER_ID/sites/$SITE_ID/deployment/script"
+
+    # curl \
+    #     --fail \
+    #     --silent \
+    #     --show-error \
+    #     --user-agent "Forge-GitHubAction/1.0" \
+    #     --max-time 5 \
+    #     --request PUT \
+    #     --connect-timeout 5 \
+    #     -H "Authorization: Bearer $API_KEY" \
+    #     -H "Content-Type: application/json" \
+    #     -H "Accept: application/json" \
+    #     --data "$JS" \
+    #     "https://forge.laravel.com/api/v1/servers/$SERVER_ID/sites/$SITE_ID/deployment/script"
         
 }
 

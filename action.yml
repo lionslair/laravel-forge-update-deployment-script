@@ -10,7 +10,9 @@ inputs:
     required: true
   auto_source:
     description: "Should deployments source the env variables"
+    default: false
     required: false
+    type: boolean
   api_key:
     description: "Laravel Forge API Key"
     required: true
