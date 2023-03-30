@@ -15,19 +15,18 @@ update_deploy_script() {
     echo $JSON_STRING;
 
 
-    curl \
+    curl -X PUT "https://forge.laravel.com/api/v1/servers/$SERVER_ID/sites/$SITE_ID/deployment/script" \
         --fail \
         --silent \
         --show-error \
         --user-agent "Forge-GitHubAction/1.0" \
         --max-time 5 \
         --connect-timeout 5 \
-        --request 'PUT' \
         -H "Authorization: Bearer $API_KEY" \
         -H "Content-Type: application/json" \
         -H "Accept: application/json" \
-        -d "[$JS]" \
-        "https://forge.laravel.com/api/v1/servers/$SERVER_ID/sites/$SITE_ID/deployment/script"
+        -d "$JS"
+        
 }
 
 if [ -n "$API_KEY" ]; then
