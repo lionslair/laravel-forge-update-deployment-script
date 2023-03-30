@@ -18,7 +18,7 @@ update_deploy_script() {
         # --silent \
 
     curl \
-        --trace \
+        --trace - \
         --show-error \
         --user-agent "Forge-GitHubAction/1.0" \
         --max-time 5 \
