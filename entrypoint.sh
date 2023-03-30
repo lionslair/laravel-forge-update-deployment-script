@@ -7,7 +7,7 @@ AUTO_SOURCE="${AUTO_SOURCE:=false}"  # If variable not set or null, set it to de
 
 update_deploy_script() {
     JSON_STRING=$(jq -n \
-                    --arg ct "$CONTENT" \
+                    --argjson ct "$CONTENT" \
                     --argjson s "$AUTO_SOURCE" \
                     '{"content": $ct, "auto_source": $s}'
     )
@@ -27,7 +27,6 @@ update_deploy_script() {
         -H "Content-Type: application/json" \
         -H "Accept: application/json" \
         --data "$JS" \
-        -v \
         "https://forge.laravel.com/api/v1/servers/$SERVER_ID/sites/$SITE_ID/deployment/script"
         
 }
